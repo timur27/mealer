@@ -1,34 +1,46 @@
 package com.mealer.mealer;
 
 
-import java.util.Arrays;
-
-import org.springframework.boot.CommandLineRunner;
+import com.mealer.mealer.Repository.UsersRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class MealerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MealerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MealerApplication.class, args);
+    }
 
-//	@Bean
-//	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+
+
+//    	@Bean
+//	CommandLineRunner runner(UsersRepo repo){
+//           TypeUser u= new TypeUser("ADMIN");
+//            Users us=new Users("ala","ma","kota",u);
+//            u.setUsers(new HashSet<Users>(){{
+//                add(us);
+//            }});
+//            TypeUser u2= new TypeUser("ADMIN");
+//            Users us2=new Users("Mala","ma","kota",u2);
+//            u2.setUsers(new HashSet<Users>(){{
+//                add(us2);
+//            }});
 //		return args -> {
-//
-//			System.out.println("Let's inspect the beans provided by Spring Boot:");
-//
-//			String[] beanNames = ctx.getBeanDefinitionNames();
-//			Arrays.sort(beanNames);
-//			for (String beanName : beanNames) {
-//				System.out.println(beanName);
-//			}
-//
+//			repo.save(new HashSet<TypeUser>(){{
+//			    add(u);
+//			    add(u2);
+//            }});
 //		};
 //	}
 
+//    @Bean
+//    CommandLineRunner runner(UsersRepo repo) {
+//        return args -> {
+//            repo.save(new TypeUser("ADMIN", new Users("ala", "ma", "kota")));
+//            repo.save(new Users("alala", "m22a", "kota", new TypeUser("ADMIN")));
+
+
+//        };
+//    }
 }
