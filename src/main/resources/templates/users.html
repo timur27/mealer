@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Flyers list</title>
+</head>
+
+<body>
+<!--/*--><!--@thymesVar id="list" type="List<com.mealer.mealer.Model.TypeUser>"--><!--*/-->
+<!--/*--><!--@thymesVar id="typeUser" type="com.mealer.mealer.Model.TypeUser"--><!--*/-->
+<!--/*--><!--@thymesVar id="shoppingList" type="com.mealer.mealer.Model.ShoppingList"--><!--*/-->
+<table>
+    <tbody th:each="typeUser : ${list}" th:remove="tag">
+    <tr>
+        <td th:text="${typeUser.getName()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:if="${success=='empty'}">
+    <br>
+    <h3> Maybe some shopping? </h3>
+    <form action="#" th:action="@{users.html}" th:object="${shoppingList}" method="post">
+        <input type="text" th:field="*{name}"/>
+        <input type="text" th:field="*{users}"/>
+
+    </form>
+</div>
+
+
+
+</body>
+
+</html>

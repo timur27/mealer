@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Flyers list</title>
+</head>
+
+<body>
+
+<h3>Maybe some food?</h3>
+<div class="container">
+    <form>
+        <div class="row">
+            <h4>Add product</h4>
+            <!--/*--><!--@thymesVar id="product" type="com.mealer.mealer.Model.Product"--><!--*/-->
+            <!--/*--><!--@thymesVar id="products" type="List<com.mealer.mealer.Model.Product>"--><!--*/-->
+            <form action="#" th:action="@{/users.html}" th:object="${product}" method="GET">
+                <input type="text" th:field="*{name}"/>
+                <input type="text" th:field="*{count}"/>
+                <input type="text" th:field="*{unit}"/>
+                <p><input type="submit" value="Add to shopList" /> </p>
+            </form>
+        </div>
+    </form>
+</div>
+
+
+</body>
+
+</html>
