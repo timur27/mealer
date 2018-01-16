@@ -32,7 +32,7 @@ public class HomeController {
 
     @RequestMapping(value = "/users/{userName}", method = RequestMethod.GET)
     public String getShoppingList(Model model, @PathVariable("userName") String userName, ShoppingList shoppingList){
-        List<ShoppingList> shoppingLists = shoppingRepository.findByUsers(userName);
+        List<ShoppingList> shoppingLists = shoppingRepository.findByTypeUser(userName);
 
         if (shoppingLists.isEmpty()){
             model.addAttribute("success", "empty");

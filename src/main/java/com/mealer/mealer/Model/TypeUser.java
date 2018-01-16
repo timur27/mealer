@@ -12,18 +12,13 @@ public class TypeUser {
     private int id;
     private String name;
     @OneToMany(mappedBy = "typeUser", cascade = CascadeType.ALL)
-    private Set<Users> users;
+    private Set<ShoppingList> shoppingList;
 
     public TypeUser() {
     }
 
     public TypeUser(String name) {
         this.name = name;
-    }
-
-    public TypeUser(String name, Set<Users> users) {
-        this.name = name;
-        this.users = users;
     }
 
     public int getId() {
@@ -42,11 +37,11 @@ public class TypeUser {
         this.name = name;
     }
 
-    public Set<Users> getUsers() {
-        return users;
+    public Set<ShoppingList> getShoppingList() {
+        return shoppingList;
     }
 
-    public void setUsers(Set<Users> users) {
-        this.users = users;
+    public void setShoppingList(Set<ShoppingList> shoppingList) {
+        this.shoppingList = shoppingList;
     }
 }

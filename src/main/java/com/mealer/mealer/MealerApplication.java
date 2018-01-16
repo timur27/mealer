@@ -1,7 +1,6 @@
 package com.mealer.mealer;
 
 
-import com.mealer.mealer.Repository.UsersRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

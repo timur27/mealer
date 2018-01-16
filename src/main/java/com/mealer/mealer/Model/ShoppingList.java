@@ -13,8 +13,8 @@ public class ShoppingList {
     @ManyToMany(mappedBy = "shoppingList")
     private Set<ElementList> elementList;
     @ManyToOne
-    @JoinColumn(name = "users_id")
-    private Users users;
+    @JoinColumn(name = "type_user_id")
+    private TypeUser typeUser;
 
     public int getId() {
         return id;
@@ -40,11 +40,11 @@ public class ShoppingList {
         this.elementList = elementList;
     }
 
-    public Users getUsers() {
-        return users;
+    public TypeUser getTypeUser() {
+        return typeUser;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setTypeUser(TypeUser typeUser) {
+        this.typeUser = typeUser;
     }
 }

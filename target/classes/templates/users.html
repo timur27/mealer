@@ -18,11 +18,14 @@
     </tbody>
 </table>
 
-<div th:if="${message=='userName'}">
-    <td th:text="${typeUser.name}">User</td>
+<div th:if="${success=='empty'}">
     <br>
     <h3> Maybe some shopping? </h3>
+    <form action="#" th:action="@{users.html}" th:object="${shoppingList}" method="post">
+        <input type="text" th:field="*{name}"/>
+        <input type="text" th:field="*{users}"/>
 
+    </form>
 </div>
 
 
