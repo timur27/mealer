@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User data</title>
+</head>
+
+
+
+<body>
+    <h2>Here you are</h2>
+
+    <div th:if="${show=='yes'}">
+        <th th:text="${found.name}"></th>
+        <h3>Maybe look at your shopping lists?</h3>
+        <a th:href="@{${url}}" th:text="${url}"></a>
+    </div>
+
+
+    <div th:if="${emptyRes=='no'}">
+        <table>
+            <tbody th:each="s: ${lists}" th:remove="tag">
+            <tr>
+                <td th:text="${s.getName()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--/*--><!--@thymesVar id="shoppingList" type="com.mealer.mealer.Model.ShoppingList"--><!--*/-->
+    <div th:if="${emptyRes=='yes'}">
+        <h3>You dont have any lists at that moment! Please, add some new</h3>
+        <form action="#" th:action="@{/users.html}" th:object="${shoppingList}" method="GET">
+            <input type="text" th:field="*{name}"/>
+            <p><input type="submit" value="Submit" /> </p>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+</html>

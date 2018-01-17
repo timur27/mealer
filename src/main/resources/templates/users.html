@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User list</title>
+</head>
+
+<body>
+<!--/*--><!--@thymesVar id="list" type="List<com.mealer.mealer.Model.TypeUser>"--><!--*/-->
+<!--/*--><!--@thymesVar id="typeUser" type="com.mealer.mealer.Model.TypeUser"--><!--*/-->
+<table>
+    <tbody th:each="typeUser : ${list}" th:remove="tag">
+    <tr>
+        <td th:text="${typeUser.name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>
