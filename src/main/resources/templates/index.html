@@ -11,16 +11,15 @@
 <body>
 <div class="container">
     <form>
+        <!--/*--><!--@thymesVar id="typeUser" type="com.mealer.mealer.Model.TypeUser"--><!--*/-->
         <div class="row">
             <h4>What's your name?</h4>
-            <!--/*--><!--@thymesVar id="typeUser" type="com.mealer.mealer.Model.TypeUser"--><!--*/-->
-            <form action="#" th:action="@{/index.html}" th:object="${typeUser}" method="GET">
+            <form action="#" th:action="@{/users}" th:object="${typeUser}" method="get" class="form-horizontal" role="form">
                 <input type="text" th:field="*{name}"/>
                 <label	th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
                           class="validation-message" style="font-size: 13px; font-family: Verdana; color: #854141; position: absolute; top: 48%; left: 40% "></label>
                 <p><input type="submit" value="Submit" /> </p>
             </form>
-
         </div>
     </form>
 </div>

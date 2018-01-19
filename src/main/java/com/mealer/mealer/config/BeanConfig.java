@@ -1,4 +1,4 @@
-package com.mealer.mealer;
+package com.mealer.mealer.config;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

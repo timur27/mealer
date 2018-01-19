@@ -1,8 +1,9 @@
-package com.mealer.mealer;
+package com.mealer.mealer.Service;
 
 import com.google.common.collect.Maps;
 import com.mealer.mealer.Model.Shop;
 import com.mealer.mealer.Repository.ShopRepository;
+import com.mealer.mealer.Service.JSONReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,15 @@ public class Distance {
     }
 
     public List<String>  distances(String myLocation, String bLocation) throws IOException, JSONException {
-        final String baseUrl = "http://maps.googleapis.com/maps/api/directions/json";
+        final String baseUrl = "https://maps.googleapis.com/maps/api/directions/json";
         final Map<String, String> params = Maps.newHashMap();
         params.put("sensor", "false");
-        params.put("language", "ru");
+        params.put("language", "en");
         params.put("mode", "driving"); //driving, walking, bicycling
-        params.put("origin", "Kraków, Bonarka");
+        params.put("origin", myLocation);
 
-        params.put("destination", "Kraków, Sliska 14");
+        params.put("destination", bLocation);
+        params.put("key", "AIzaSyA39OlgnDz9JiQiOYhWen3oJ_WEhbt031U");
 
         final String url = baseUrl + '?' + JSONReader.encodeParams(params);
         final JSONObject response = JSONReader.read(url);
@@ -47,6 +49,9 @@ public class Distance {
         final String duration = location.getJSONObject("duration").getString("text");
         System.out.println(distance + "\n" + duration);
         List<String> list = new ArrayList<>();
+//        list.add("skdljasd");
+//        list.add("aqhwjghjgsd");
+        list.add(bLocation);
         list.add(distance);
         list.add(duration);
         return list;

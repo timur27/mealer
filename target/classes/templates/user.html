@@ -15,6 +15,8 @@
         <th th:text="${found.name}"></th>
         <h3>Maybe look at your shopping lists?</h3>
         <a th:href="@{${url}}" th:text="${url}"></a>
+        <h3>Or some maps?</h3>
+        <a th:href="@{${url1}}" th:text="${url1}"></a>
     </div>
 
 
@@ -22,17 +24,64 @@
         <table>
             <tbody th:each="s: ${lists}" th:remove="tag">
             <tr>
-                <td th:text="${s.getName()}"></td>
+                <a th:href="@{${url} + ${s.getName()}}" th:text="${s.getName()}"></a>
             </tr>
             </tbody>
         </table>
     </div>
 
+    <!--/*--><!--@thymesVar id="address" type="com.mealer.mealer.Model.Address"--><!--*/-->
+    <div th:if="${mytmp=='yes'}">
+        <h3>Here are you</h3>
+        <table>
+            <h3>Please, enter your address!</h3>
+            <form action="#" th:action="@{/users/{username}/maps(username=${username})}" th:object="${address}" method="GET">
+                <input name="value" type="text" th:field="*{value}"/>
+                <p><input type="submit" value="Submit" />    </p>
+            </form>
+        </table>
+    </div>
+
+    <div th:if="${lists=='are'}">
+        <h3>Here your shopping lists</h3>
+        <tbody>
+        <tr th:each="list : ${shoppinglists}">
+            <td th:text="${list.name}"></td>
+        </tr>
+        </tbody>
+    </div>
+
+
+    <div th:if="${distancess=='herehere'}">
+        <h3>Here your distances</h3>
+        <tbody>
+        <tr th:each="d : ${distances1}">
+            <a th:href="@{${secondurl} +'/'+${#strings.replace(d.get(0),' ','')} }" th:text="${d}"></a>
+            <!--<td th:text="${d}"></td>-->
+            <br/>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr th:each="v : ${distances}">
+            <td th:text="${v.distance}"></td>
+            <td th:text="${v.address}"></td>
+            <td th:text="${v.lat}"></td>
+            <td th:text="${v.lng}"></td>
+        </tr>
+        </tbody>
+    </div>
+
+    <div th:if="${picture=='yes'}">
+        <h3>Here choosen map</h3>
+        <tbody>
+        <img th:src="@{/src/main/resources/savedImages/out.jpg}" />
+        </tbody>
+    </div>
 
     <!--/*--><!--@thymesVar id="shoppingList" type="com.mealer.mealer.Model.ShoppingList"--><!--*/-->
     <div th:if="${emptyRes=='yes'}">
         <h3>You dont have any lists at that moment! Please, add some new</h3>
-        <form action="#" th:action="@{/users.html}" th:object="${shoppingList}" method="GET">
+        <form action="#" th:action="@{user.html}" th:object="${shoppingList}" method="GET">
             <input type="text" th:field="*{name}"/>
             <p><input type="submit" value="Submit" /> </p>
         </form>
