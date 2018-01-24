@@ -1,5 +1,7 @@
-package com.mealer.mealer;
+package com.mealer.mealer.Service;
 
+
+import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -10,21 +12,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-public class StaticImage {
+@Service
+public class StaticImageService {
     private final String USER_AGENT = "Mozilla/5.0";
-
-    public static void main(String[] args) throws Exception {
-
-        StaticImage http = new StaticImage();
-
-        System.out.println("Testing 1 - Send Http GET request");
-        http.sendGet(55.735961,37.52741, 300, 300);
-
-
-    }
+//
+//    public static void main(String[] args) throws Exception {
+//
+//        StaticImageService http = new StaticImageService();
+//
+//        System.out.println("Testing 1 - Send Http GET request");
+//        http.sendGet(55.735961,37.52741, 300, 300);
+//
+//
+//    }
 
     // HTTP GET request
-    private void sendGet(double lat, double lon, int width, int height) throws Exception {
+    public void sendGet(double lat, double lon, int width, int height) throws Exception {
         String url = "http://maps.google.com/maps/api/staticmap";
         url += "?center=Galeria+Krakowska,Krakow,KRK";
         url += "&zoom=15&size=600x300&maptype=roadmap";
