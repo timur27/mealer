@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <title th:utext="${title}"></title>
     <style>
@@ -19,30 +19,34 @@
             background-color: #4CAF50;
             color: white;
         }
+         a:link, a:visited {
+             background-color: #f44336;
+             color: white;
+             padding: 14px 25px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+         }
+
+
+        a:hover, a:active {
+            background-color: red;
+        }
     </style>
 </head>
 <body>
 <table border="1" style="width:100%">
     <tr>
         <th>Name</th>
-        <th>Prize</th>
-        <th>Count</th>
-        <th>Unit</th>
         <!--<th>View</th>-->
     </tr>
     <tr th:each="list : ${lists}">
         <td th:utext="${list.name}"></td>
-        <td th:utext="${list.prize}"></td>
-        <td th:utext="${list.count}"></td>
-        <td th:utext="${list.unit}"></td>
         <!--<td><a th:href="@{|/listElement?name=${list.name}|}">View</a></td>-->
     </tr>
 </table>
-<div th:if="${picture=='yes'}">
-    <h3>Here choosen map</h3>
-    <tbody>
-    <img th:src="@{/out.jpg}" />
-    </tbody>
-</div>
+<a th:href="@{${url}}" th:text="${urlName}"></a>
+<a th:href="@{${urlCheap}}" th:text="${urlNameCheap}"></a>
+<a th:href="@{${urlFast}}" th:text="${urlNameFast}"></a>
 </body>
 </html>

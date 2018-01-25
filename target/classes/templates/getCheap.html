@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <title th:utext="${title}"></title>
     <style>
@@ -38,11 +38,5 @@
         <!--<td><a th:href="@{|/listElement?name=${list.name}|}">View</a></td>-->
     </tr>
 </table>
-<div th:if="${picture=='yes'}">
-    <h3>Here choosen map</h3>
-    <tbody>
-    <img th:src="@{/out.jpg}" />
-    </tbody>
-</div>
 </body>
 </html>

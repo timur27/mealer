@@ -44,7 +44,7 @@ public class StaticImageService {
         InputStream in = con.getInputStream();
 
         BufferedImage image = ImageIO.read(in);
-        ImageIO.write(image, "jpg",new File("src/main/resources/savedImages/out.jpg"));
+        ImageIO.write(image, "jpg",new File("src/main/resources/static/out.jpg"));
 //        JFrame frame = new JFrame();
 //        JLabel label = new JLabel(new ImageIcon(image));
 //        frame.getContentPane().add(label, BorderLayout.CENTER);

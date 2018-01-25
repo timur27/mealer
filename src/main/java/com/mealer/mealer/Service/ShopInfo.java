@@ -1,4 +1,4 @@
-package com.mealer.mealer.Model;
+package com.mealer.mealer.Service;
 
 public class ShopInfo {
     public String address;

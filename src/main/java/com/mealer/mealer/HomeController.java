@@ -234,9 +234,13 @@ public class HomeController {
     }
 
     @RequestMapping(value = {"/getFast"}, method = RequestMethod.GET)
-    public String getFast(Model model) throws IOException {
+    public String getFast(Model model) throws Exception {
         model.addAttribute("title", "getFast");
         Logic logic=new Logic();
+        JSONReader.Point a = JSONReader.getPoint(address.getValue());
+        StaticImageService staticImageService = new StaticImageService();
+        staticImageService.sendGet(a.lat, a.lng, 300, 300);
+        model.addAttribute("picture", "yes");
 //        logic.getFast(shoppingList.getElementList());
         model.addAttribute("lists",logic.getFast(shoppingList.getElementList(),address));
         return "getFast";

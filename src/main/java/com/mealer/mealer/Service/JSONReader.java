@@ -6,7 +6,6 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
 
-import com.mealer.mealer.Model.ShopInfo;
 import com.mealer.mealer.Model.Shop;
 import com.mealer.mealer.Repository.ShopRepository;
 import org.json.JSONException;
