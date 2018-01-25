@@ -14,8 +14,21 @@ public class Product {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "dish_has_product", joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "dish_id", referencedColumnName = "id"))
     private Set<Dish> dish;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ProductHasShop> productHasShops;
+
+    public Product() {
+    }
+
+    public Product(String name) {
+        this.name = name;
+    }
+
+    public Product(String name, double count, String unit) {
+        this.name = name;
+        this.count = count;
+        Unit = unit;
+    }
 
     public int getId() {
         return id;

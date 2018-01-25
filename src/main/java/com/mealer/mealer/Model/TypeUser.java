@@ -21,6 +21,8 @@ public class TypeUser {
         this.name = name;
     }
 
+
+
     public int getId() {
         return id;
     }

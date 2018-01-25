@@ -10,7 +10,12 @@ public class ShoppingList {
     @GeneratedValue
     private int id;
     private String name;
-    @ManyToMany(mappedBy = "shoppingList")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "element_list_has_shopping_list",
+            joinColumns = @JoinColumn(name = "shopping_id",
+                    referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "element_id",
+                    referencedColumnName = "id"))
     private Set<ElementList> elementList;
     @ManyToOne
     @JoinColumn(name = "type_user_id")
@@ -18,6 +23,12 @@ public class ShoppingList {
 
     public ShoppingList(String name, TypeUser typeUser){
         this.name = name;
+        this.typeUser = typeUser;
+    }
+
+    public ShoppingList(String name,  TypeUser typeUser, Set<ElementList> elementList) {
+        this.name = name;
+        this.elementList = elementList;
         this.typeUser = typeUser;
     }
 

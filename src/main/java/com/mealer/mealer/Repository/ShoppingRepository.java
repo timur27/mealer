@@ -10,4 +10,5 @@ import java.util.List;
 public interface ShoppingRepository extends JpaRepository<ShoppingList,Integer> {
     public List<ShoppingList> findByTypeUser(String name);
     public List<ShoppingList> findByTypeUser(TypeUser typeUser);
+    public ShoppingList findByName(String name);
 }
