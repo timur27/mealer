@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title th:utext="${title}"></title>
+</head>
+<body>
+<table>
+    <h3>Please, enter your address!</h3>
+    <form action="#" th:action="@{/getYourAddress}" th:object="${address}" method="POST">
+        <input name="value" type="text" th:field="*{value}"/>
+        <p><input type="submit" value="Submit" />    </p>
+    </form>
+</table>
+</body>
+</html>

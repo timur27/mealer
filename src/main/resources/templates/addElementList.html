@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title th:utext="${title}"></title>
+</head>
+<body>
+
+<form  th:object="${list}" th:action="@{/addElementList}"
+       method="POST" enctype="multipart/form-data">
+    <table style="text-align:left;">
+        <tr>
+            <td>Select Product:</td>
+            <td>
+                <select th:field="*{name}">
+                    <option value=""> -- </option>
+                    <option th:each="product : ${products}"
+                            th:value="${product.name}"
+                            th:utext="${product.name}"/>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

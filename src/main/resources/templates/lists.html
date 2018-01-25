@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title th:utext="${title}"></title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+         a:link, a:visited {
+             background-color: #f44336;
+             color: white;
+             padding: 14px 25px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+         }
+
+
+        a:hover, a:active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Include _menu.html -->
+<!--<th:block th:include="/_menu"></th:block>-->
+
+
+<!--<h2>Message : <span th:utext="${name}"></span></h2>-->
+<table border="1" style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>View</th>
+    </tr>
+    <tr th:each="list : ${lists}">
+        <td th:utext="${list.name}"></td>
+        <td><a th:href="@{|/listElement?name=${list.name}|}">View</a></td>
+    </tr>
+</table>
+<a th:href="@{${url}}" th:text="${urlName}"></a>
+
+
+
+
+</body>
+</html>
